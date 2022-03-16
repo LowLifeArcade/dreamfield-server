@@ -1,7 +1,7 @@
 // import AWS from 'aws-sdk';
 const AWS = require('aws-sdk');
 // import { nanoid } from 'nanoid';
-const {nanoid} = require('nanoid')
+const { nanoid } = require('nanoid');
 // import Field from '../models/field';
 const Field = require('../models/field');
 // import Scene from '../models/scene';
@@ -9,7 +9,7 @@ const Scene = require('../models/scene');
 // import slugify from 'slugify';
 const slugify = require('slugify');
 // import { readFileSync } from 'fs'; // fs.readFileSync
-const {readFileSync} = require('fs')
+const { readFileSync } = require('fs');
 // fs.readFileSync}
 
 const awsConfig = {
@@ -108,10 +108,10 @@ exports.deleteField = async (req, res) => {
     // scenes.forEach(async (scene) => {
     //   await scene.remove();
     // });
-    const fields = await Field.find({creator: req.user._id})
+    const fields = await Field.find({ creator: req.user._id });
 
-    const returnField = await fields[0] ? fields[0] : {}
-    
+    const returnField = (await fields[0]) ? fields[0] : {};
+
     // const shots = await Shot.find({ forProject: field.slug });
     // shots.forEach(async (shot) => {
     //   await shot.remove();
@@ -121,14 +121,14 @@ exports.deleteField = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 exports.updateFieldItem = async (req, res) => {
-  console.log('FIELD UPDATE OBJECT: ',req.body)
+  console.log('FIELD UPDATE OBJECT: ', req.body);
   const itemObject = req.body;
   try {
     const field = await Field.findByIdAndUpdate(
-      req.params.fieldId ,
+      req.params.fieldId,
       { $set: itemObject },
       { new: true }
     );
@@ -136,11 +136,11 @@ exports.updateFieldItem = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 exports.read = async (req, res) => {
   try {
-    console.log('GET FIELD')
+    console.log('GET FIELD');
     const field = await Field.findOne({ slug: req.params.slug })
       // .populate('creator', '_id name')
       .exec();
