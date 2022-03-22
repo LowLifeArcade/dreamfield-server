@@ -75,6 +75,7 @@ exports.login = async (req, res) => {
       httpOnly: true,
       // secure: true, // only works on https
     });
+    console.log('login headers',JSON.stringify(req.headers));
 
     // send user as json response
     res.json(user);
