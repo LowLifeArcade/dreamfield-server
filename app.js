@@ -53,11 +53,11 @@ readdirSync('./routes').map((r) => app.use('/api', require(`./routes/${r}`)));
 
 // csrf
 // test
-// app.use(csrfProtection);
+app.use(csrfProtection);
 
-// app.get('/api/csrf-token', (req, res) => {
-//   res.json({ csrfToken: req.csrfToken() });
-//   console.log(JSON.stringify(req.headers));
-// });
+app.get('/api/csrf-token', (req, res) => {
+  res.json({ csrfToken: req.csrfToken() });
+  console.log(JSON.stringify(req.headers));
+});
 
 module.exports = app;
