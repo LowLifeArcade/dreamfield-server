@@ -33,7 +33,12 @@ const app = express();
 
 // apply middlewares
 app.use(helmet());
-app.use(cors({ origin: "*", credentials: true }));
+app.use(
+  cors({
+    origin: ['http://localhost:3000', 'https://dreamfield-client.vercel.app/'],
+    credentials: true,
+  })
+);
 // app.use(express.json());
 app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
