@@ -35,7 +35,7 @@ const app = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://dreamfield-client.vercel.app/'],
+    origin: ['http://localhost:3000', 'https://dreamfield-client.vercel.app'],
     credentials: true,
   })
 );
