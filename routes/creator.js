@@ -15,6 +15,6 @@ const {makeCreator, getAccountStatus, currentCreator, creatorFields } = require(
 router.post('/make-creator', requireSignin, makeCreator)
 router.post('/get-account-status', requireSignin, getAccountStatus)
 router.get('/current-creator', requireSignin, currentCreator)
-router.get('/creator-fields', requireSignin, creatorFields)
+router.get('/creator-fields', creatorFields)
 
 module.exports = router;
