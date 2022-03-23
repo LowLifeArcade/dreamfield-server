@@ -4,10 +4,10 @@ const expressJwt = require('express-jwt');
 const User = require('../models/user.js');
 
 exports.requireSignin = expressJwt({
-  getToken: (req, res) => req.cookies.token,
+  getToken: (req, res) => req.cookies.token.split(' ')[1],
   secret: process.env.JWT_SECRET,
   algorithms: ['HS256'],
-}); 
+});
 
 // req.user._id
 
